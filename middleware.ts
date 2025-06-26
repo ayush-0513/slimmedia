@@ -13,7 +13,11 @@ const isPublicApiRoute = createRouteMatcher([
 
 ])
 
-export default clerkMiddleware()
+export default clerkMiddleware(async (auth, req) => {
+    const { userId } = await auth(); // await is needed or not.
+    const currentUrl = new URL(req.url)
+
+})
 
 export const config = {
   matcher: [
