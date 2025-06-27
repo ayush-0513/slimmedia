@@ -31,7 +31,7 @@ export default clerkMiddleware(async (auth, req) => {
     }
        // If the user is not logged in and accessing an API route, redirect to sign-in
     if(isApiRequest && !isPublicApiRoute(req)) {
-      return NextResponse.redirect(new URL('/signin', req.url))
+      return NextResponse.redirect(new URL('/sign-in', req.url))
     }
   }
   return NextResponse.next()
